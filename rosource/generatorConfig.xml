@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="mysql" targetRuntime="Mybatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 -->
+			<property name="suppressAllComents" value="true"/>
+		</commentGenerator>
+		
+		<!-- 数据库连接的信息：驱动类、链接地址、用户名、密码 -->
+		<jdbcConnection driverClass="oracle.jdbc.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:3306"
+			userId="root"
+			password="root">
+		</jdbcConnection>
+		
+		<!-- 默认false   把jdbc decimal和numeric 类型解析为Integer
+			     true    把jdbc decimal和numeric 类型解析为BigDecimal  -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
+		
+		<!-- 生成bean类位置 -->
+		<javaModelGenerator targetPackage="" targetProject=".\src">
+			<!-- 是否让schema作为包的后缀 -->
+			<property name="enableSubPackage" value="false"/>
+			<!-- 从数据库返回的值清理前后的空格 -->
+			<property name="trimStrings" value="false"/>
+		</javaModelGenerator>
+		
+		<!-- mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="" targetProject=".\src">
+			<!-- 是否让schema作为包的后缀 -->
+			<property name="enableSubPackage" value="false"/>
+		</javaClientGenerator>
+		
+		<!-- mapper映射文件生成位置 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject=".\resource">
+			<!-- 是否让schema作为包的后缀 -->
+			<property name="enableSubPackage" value="false"/>
+		</sqlMapGenerator>
+		
+	</context>
+</generatorConfiguration>
+
